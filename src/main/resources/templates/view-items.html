@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All Items</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-bottom: 50px;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            color: #667eea !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: #4a5568 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #667eea !important;
+            transform: translateY(-2px);
+        }
+        
+        .page-header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .page-header h2 {
+            color: #2d3748;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .filter-buttons {
+            background: white;
+            border-radius: 50px;
+            padding: 8px;
+            display: inline-flex;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .filter-buttons .btn {
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        
+        .filter-buttons .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .filter-buttons .btn-outline-primary {
+            color: #667eea;
+        }
+        
+        .filter-buttons .btn-outline-primary:hover,
+        .filter-buttons .btn-outline-primary.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .filter-buttons .btn-outline-danger {
+            color: #f5576c;
+        }
+        
+        .filter-buttons .btn-outline-danger:hover,
+        .filter-buttons .btn-outline-danger.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+        
+        .filter-buttons .btn-outline-success {
+            color: #00f2fe;
+        }
+        
+        .filter-buttons .btn-outline-success:hover,
+        .filter-buttons .btn-outline-success.active {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
+        }
+        
+        .item-card {
+            border: none !important;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: white;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .item-card .card-header {
+            padding: 20px 25px;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .item-card .card-header h5 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .item-card.lost-card .card-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .item-card.found-card .card-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .item-card .badge {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .item-card .card-body {
+            padding: 25px;
+        }
+        
+        .item-card .card-body p {
+            margin-bottom: 12px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .item-card .card-body strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .item-card hr {
+            margin: 20px 0;
+            border-top: 2px solid #e2e8f0;
+        }
+        
+        .no-items {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .no-items p {
+            font-size: 1.3rem;
+            color: #718096;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">🔍 Lost & Found</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/report-lost">Report Lost</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/report-found">Report Found</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/view-items">View Items</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>📋 All Items</h2>
+        </div>
+        
+        <div class="text-center mb-5">
+            <div class="filter-buttons">
+                <button type="button" class="btn btn-outline-primary active" onclick="filterItems('ALL')">All Items</button>
+                <button type="button" class="btn btn-outline-danger" onclick="filterItems('LOST')">Lost Only</button>
+                <button type="button" class="btn btn-outline-success" onclick="filterItems('FOUND')">Found Only</button>
+            </div>
+        </div>
+
+        <div id="itemsList" class="row">
+            <!-- Items will be loaded here dynamically -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        let currentFilter = 'ALL';
+        
+        function filterItems(status) {
+            currentFilter = status;
+            
+            // Update active button
+            document.querySelectorAll('.filter-buttons .btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            loadItems();
+        }
+        
+        function loadItems() {
+            const url = currentFilter === 'ALL' ? '/api/items' : `/api/items/status/${currentFilter}`;
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(items => {
+                    const container = document.getElementById('itemsList');
+                    if (items.length === 0) {
+                        container.innerHTML = '<div class="col-12"><div class="no-items"><p>🔍 No items found.</p></div></div>';
+                        return;
+                    }
+                    
+                    container.innerHTML = items.map(item => `
+                        <div class="col-md-6 mb-4">
+                            <div class="card item-card ${item.status === 'LOST' ? 'lost-card' : 'found-card'}">
+                                <div class="card-header text-white">
+                                    <h5>${item.itemName}</h5>
+                                    <span class="badge bg-white ${item.status === 'LOST' ? 'text-danger' : 'text-info'}">${item.status}</span>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>📦 Category:</strong> ${item.category}</p>
+                                    <p><strong>📝 Description:</strong> ${item.description}</p>
+                                    <p><strong>📍 Location:</strong> ${item.location}</p>
+                                    <p><strong>📅 Reported:</strong> ${new Date(item.reportedDate).toLocaleDateString()}</p>
+                                    <hr>
+                                    <p class="mb-1"><strong>👤 Contact:</strong> ${item.contactName}</p>
+                                    <p class="mb-1"><strong>📧 Email:</strong> ${item.contactEmail}</p>
+                                    ${item.contactPhone ? `<p class="mb-1"><strong>📱 Phone:</strong> ${item.contactPhone}</p>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                })
+                .catch(error => {
+                    console.error('Error loading items:', error);
+                    document.getElementById('itemsList').innerHTML = 
+                        '<div class="col-12"><div class="no-items"><p class="text-danger">❌ Error loading items.</p></div></div>';
+                });
+        }
+        
+        // Load items on page load
+        loadItems();
+    </script>
+</body>
+</html>

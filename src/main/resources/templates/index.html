@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            color: #667eea !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: #4a5568 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #667eea !important;
+            transform: translateY(-2px);
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 30px;
+            padding: 50px 30px;
+            margin-top: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-title {
+            color: #2d3748;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            color: #718096;
+            font-size: 1.3rem;
+        }
+        
+        .count-card {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .count-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            pointer-events: none;
+        }
+        
+        .count-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .lost-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .found-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .count-card .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .count-number {
+            font-size: 5rem;
+            font-weight: 900;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .count-card .btn {
+            background: white;
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .lost-card .btn {
+            color: #f5576c;
+        }
+        
+        .found-card .btn {
+            color: #00f2fe;
+        }
+        
+        .count-card .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 40px 25px;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-box h3 {
+            color: #2d3748;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .feature-box p {
+            color: #4a5568;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        .feature-box:nth-child(1) {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .feature-box:nth-child(2) {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        .feature-box:nth-child(3) {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">🔍 Lost & Found</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/report-lost">Report Lost</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/report-found">Report Found</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/view-items">View Items</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="text-center mb-5">
+                <h1 class="display-3 hero-title">Welcome to Lost & Found</h1>
+                <p class="hero-subtitle">Help reunite people with their belongings</p>
+            </div>
+
+            <!-- Live Count Cards -->
+            <div class="row justify-content-center mb-5 g-4">
+                <div class="col-md-5">
+                    <div class="card text-center count-card lost-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Lost Items</h5>
+                            <h2 class="count-number" id="lostCount">0</h2>
+                            <a href="/report-lost" class="btn">Report Lost Item</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card text-center count-card found-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Found Items</h5>
+                            <h2 class="count-number" id="foundCount">0</h2>
+                            <a href="/report-found" class="btn">Report Found Item</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="row mt-5 g-4">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-box">
+                        <h3>📝 Report Lost</h3>
+                        <p>Lost something? Report it here and we'll help you find it.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-box">
+                        <h3>🔍 Report Found</h3>
+                        <p>Found an item? Let others know so they can claim it.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-box">
+                        <h3>👀 View All</h3>
+                        <p>Browse through all lost and found items in our database.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

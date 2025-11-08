@@ -1,22 +1,46 @@
-package com.found.demo.service;
+package com.lostandfound.service;
 
-import com.found.demo.model.Item;
-import com.found.demo.model.ItemStatus;
-import com.found.demo.repository.ItemRepository;
+import com.lostandfound.model.Item;
+import com.lostandfound.model.ItemStatus;
+import com.lostandfound.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class ItemServiceImpl implements ItemService {
+public class ItemService {
     
     @Autowired
     private ItemRepository itemRepository;
     
-    @Override
+    /**
+     * Get all items from the database
+     */
+    public List<Item> getAllItems() {
+        return itemRepository.findAll();
+    }
+    
+    /**
+     * Get items by status (LOST or FOUND)
+     */
+    public List<Item> getItemsByStatus(ItemStatus status) {
+        return itemRepository.findByStatus(status);
+    }
+    
+    /**
+     * Get item by ID
+     */
+    public Optional<Item> getItemById(Long id) {
+        return itemRepository.findById(id);
+    }
+    
+    /**
+     * Save a new item or update existing item
+     */
     public Item saveItem(Item item) {
         if (item.getReportedDate() == null) {
             item.setReportedDate(LocalDate.now());
@@ -24,45 +48,27 @@ public class ItemServiceImpl implements ItemService {
         return itemRepository.save(item);
     }
     
-    @Override
-    public List<Item> getAllItems() {
-        return itemRepository.findAll();
-    }
-    
-    @Override
-    public List<Item> getItemsByStatus(String status) {
-        ItemStatus itemStatus = ItemStatus.valueOf(status);
-        return itemRepository.findByStatus(itemStatus);
-    }
-    
-    @Override
-    public Item getItemById(Long id) {
-        return itemRepository.findById(id).orElse(null);
-    }
-    
-    @Override
+    /**
+     * Delete an item by ID
+     */
     public void deleteItem(Long id) {
         itemRepository.deleteById(id);
     }
     
-    @Override
-    public long countLostItems() {
-        return itemRepository.countByStatus(ItemStatus.LOST);
-    }
-    
-    @Override
-    public long countFoundItems() {
-        return itemRepository.countByStatus(ItemStatus.FOUND);
-    }
-    
-    @Override
+    /**
+     * Search items with multiple filters
+     * @param query - search text
+     * @param type - field to search in (all, itemName, location, description)
+     * @param status - item status (LOST, FOUND, or null for all)
+     * @param date - reported date filter
+     */
     public List<Item> searchItems(String query, String type, String status, String date) {
         ItemStatus itemStatus = (status != null && !status.isEmpty()) ? ItemStatus.valueOf(status) : null;
         LocalDate reportedDate = (date != null && !date.isEmpty()) ? LocalDate.parse(date) : null;
         
         List<Item> results;
         
-        // If only date filter
+        // If only date filter is provided
         if ((query == null || query.isEmpty()) && reportedDate != null) {
             if (itemStatus != null) {
                 results = itemRepository.findByReportedDateAndStatus(reportedDate, itemStatus);
@@ -74,11 +80,7 @@ public class ItemServiceImpl implements ItemService {
         
         // If no query, return filtered or all items
         if (query == null || query.isEmpty()) {
-            if (itemStatus != null) {
-                return itemRepository.findByStatus(itemStatus);
-            } else {
-                return itemRepository.findAll();
-            }
+            return itemStatus != null ? getItemsByStatus(itemStatus) : getAllItems();
         }
         
         // Search based on type
@@ -123,5 +125,47 @@ public class ItemServiceImpl implements ItemService {
         }
         
         return results;
+    }
+    
+    /**
+     * Search items by item name only
+     */
+    public List<Item> searchByItemName(String itemName) {
+        return itemRepository.findByItemNameContainingIgnoreCase(itemName);
+    }
+    
+    /**
+     * Search items by location only
+     */
+    public List<Item> searchByLocation(String location) {
+        return itemRepository.findByLocationContainingIgnoreCase(location);
+    }
+    
+    /**
+     * Get items by date
+     */
+    public List<Item> getItemsByDate(LocalDate date) {
+        return itemRepository.findByReportedDate(date);
+    }
+    
+    /**
+     * Get count of all items
+     */
+    public long getItemCount() {
+        return itemRepository.count();
+    }
+    
+    /**
+     * Get count of lost items
+     */
+    public long getLostItemCount() {
+        return itemRepository.findByStatus(ItemStatus.LOST).size();
+    }
+    
+    /**
+     * Get count of found items
+     */
+    public long getFoundItemCount() {
+        return itemRepository.findByStatus(ItemStatus.FOUND).size();
     }
 }

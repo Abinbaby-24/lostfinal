@@ -11,51 +11,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ItemServiceImpl implements ItemService {
+public class ItemSearchService {
     
     @Autowired
     private ItemRepository itemRepository;
     
-    @Override
-    public Item saveItem(Item item) {
-        if (item.getReportedDate() == null) {
-            item.setReportedDate(LocalDate.now());
-        }
-        return itemRepository.save(item);
-    }
-    
-    @Override
-    public List<Item> getAllItems() {
-        return itemRepository.findAll();
-    }
-    
-    @Override
-    public List<Item> getItemsByStatus(String status) {
-        ItemStatus itemStatus = ItemStatus.valueOf(status);
-        return itemRepository.findByStatus(itemStatus);
-    }
-    
-    @Override
-    public Item getItemById(Long id) {
-        return itemRepository.findById(id).orElse(null);
-    }
-    
-    @Override
-    public void deleteItem(Long id) {
-        itemRepository.deleteById(id);
-    }
-    
-    @Override
-    public long countLostItems() {
-        return itemRepository.countByStatus(ItemStatus.LOST);
-    }
-    
-    @Override
-    public long countFoundItems() {
-        return itemRepository.countByStatus(ItemStatus.FOUND);
-    }
-    
-    @Override
+    /**
+     * Main search method with multiple filters
+     */
     public List<Item> searchItems(String query, String type, String status, String date) {
         ItemStatus itemStatus = (status != null && !status.isEmpty()) ? ItemStatus.valueOf(status) : null;
         LocalDate reportedDate = (date != null && !date.isEmpty()) ? LocalDate.parse(date) : null;

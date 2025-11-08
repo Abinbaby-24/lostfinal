@@ -1,9 +1,7 @@
 package com.found.demo.model;
 
-
-
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "items")
@@ -25,19 +23,20 @@ public class Item {
     @Column(nullable = false)
     private String location;
     
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String status; // "LOST" or "FOUND"
+    private ItemStatus status; // Changed from String to ItemStatus enum
     
     private String contactName;
     private String contactEmail;
     private String contactPhone;
     
     @Column(nullable = false)
-    private LocalDateTime reportedDate;
+    private LocalDate reportedDate; // Changed from LocalDateTime to LocalDate
     
     // Constructors
     public Item() {
-        this.reportedDate = LocalDateTime.now();
+        this.reportedDate = LocalDate.now();
     }
     
     // Getters and Setters
@@ -81,11 +80,11 @@ public class Item {
         this.location = location;
     }
     
-    public String getStatus() {
+    public ItemStatus getStatus() {
         return status;
     }
     
-    public void setStatus(String status) {
+    public void setStatus(ItemStatus status) {
         this.status = status;
     }
     
@@ -113,11 +112,11 @@ public class Item {
         this.contactPhone = contactPhone;
     }
     
-    public LocalDateTime getReportedDate() {
+    public LocalDate getReportedDate() {
         return reportedDate;
     }
     
-    public void setReportedDate(LocalDateTime reportedDate) {
+    public void setReportedDate(LocalDate reportedDate) {
         this.reportedDate = reportedDate;
     }
 }

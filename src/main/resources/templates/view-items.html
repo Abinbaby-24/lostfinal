@@ -12,31 +12,31 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding-bottom: 50px;
         }
-        
+
         .navbar {
             background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .navbar-brand {
             color: #667eea !important;
             font-weight: bold;
             font-size: 1.5rem;
         }
-        
+
         .nav-link {
             color: #4a5568 !important;
             font-weight: 500;
             margin: 0 10px;
             transition: all 0.3s ease;
         }
-        
+
         .nav-link:hover, .nav-link.active {
             color: #667eea !important;
             transform: translateY(-2px);
         }
-        
+
         .page-header {
             background: white;
             border-radius: 20px;
@@ -45,7 +45,7 @@
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
+
         .page-header h2 {
             color: #2d3748;
             font-weight: 800;
@@ -55,8 +55,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        /* SEARCH BAR STYLES */
+
         .search-container {
             background: white;
             border-radius: 20px;
@@ -64,11 +63,9 @@
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
-        .search-box {
-            position: relative;
-        }
-        
+
+        .search-box { position: relative; }
+
         .search-box input {
             border-radius: 50px;
             padding: 15px 50px 15px 25px;
@@ -76,13 +73,13 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-        
+
         .search-box input:focus {
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
             outline: none;
         }
-        
+
         .search-box .search-icon {
             position: absolute;
             right: 20px;
@@ -91,14 +88,14 @@
             color: #667eea;
             font-size: 1.2rem;
         }
-        
+
         .search-filters {
             display: flex;
             gap: 15px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
-        
+
         .search-filters select,
         .search-filters input[type="date"] {
             border-radius: 50px;
@@ -106,20 +103,20 @@
             border: 2px solid #e2e8f0;
             transition: all 0.3s ease;
         }
-        
+
         .search-filters select:focus,
         .search-filters input[type="date"]:focus {
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
             outline: none;
         }
-        
+
         .search-filters .btn {
             border-radius: 50px;
             padding: 10px 30px;
             font-weight: 600;
         }
-        
+
         .filter-buttons {
             background: white;
             border-radius: 50px;
@@ -127,7 +124,7 @@
             display: inline-flex;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-        
+
         .filter-buttons .btn {
             border: none;
             border-radius: 50px;
@@ -137,44 +134,33 @@
             transition: all 0.3s ease;
             background: transparent;
         }
-        
-        .filter-buttons .btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        .filter-buttons .btn-outline-primary {
-            color: #667eea;
-        }
-        
+
+        .filter-buttons .btn:hover { transform: translateY(-2px); }
+
+        .filter-buttons .btn-outline-primary { color: #667eea; }
         .filter-buttons .btn-outline-primary:hover,
         .filter-buttons .btn-outline-primary.active {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
-        
-        .filter-buttons .btn-outline-danger {
-            color: #f5576c;
-        }
-        
+
+        .filter-buttons .btn-outline-danger { color: #f5576c; }
         .filter-buttons .btn-outline-danger:hover,
         .filter-buttons .btn-outline-danger.active {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
             box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
         }
-        
-        .filter-buttons .btn-outline-success {
-            color: #00f2fe;
-        }
-        
+
+        .filter-buttons .btn-outline-success { color: #00f2fe; }
         .filter-buttons .btn-outline-success:hover,
         .filter-buttons .btn-outline-success.active {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
             box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
         }
-        
+
         .item-card {
             border: none !important;
             border-radius: 20px;
@@ -183,12 +169,12 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             background: white;
         }
-        
+
         .item-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-        
+
         .item-card .card-header {
             padding: 20px 25px;
             border: none;
@@ -196,48 +182,48 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .item-card .card-header h5 {
             margin: 0;
             font-weight: 700;
             font-size: 1.3rem;
         }
-        
+
         .item-card.lost-card .card-header {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
-        
+
         .item-card.found-card .card-header {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
-        
+
         .item-card .badge {
             padding: 8px 15px;
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.85rem;
         }
-        
+
         .item-card .card-body {
             padding: 25px;
         }
-        
+
         .item-card .card-body p {
             margin-bottom: 12px;
             color: #4a5568;
             line-height: 1.6;
         }
-        
+
         .item-card .card-body strong {
             color: #2d3748;
             font-weight: 600;
         }
-        
+
         .item-card hr {
             margin: 20px 0;
             border-top: 2px solid #e2e8f0;
         }
-        
+
         .no-items {
             background: white;
             border-radius: 20px;
@@ -245,15 +231,161 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
+
         .no-items p {
             font-size: 1.3rem;
             color: #718096;
             margin: 0;
         }
+
+        /* ── ACTION BUTTONS ── */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-edit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .btn-delete {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .btn-edit:hover  { transform: translateY(-2px); opacity: 0.9; }
+        .btn-delete:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        /* ── EDIT MODAL ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal-box {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 550px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to   { transform: translateY(0);     opacity: 1; }
+        }
+
+        .modal-box h4 {
+            font-weight: 800;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-box label {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .modal-box .form-control,
+        .modal-box .form-select {
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .modal-box .form-control:focus,
+        .modal-box .form-select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            outline: none;
+        }
+
+        .modal-footer-btns {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-save {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 700;
+            cursor: pointer;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cancel {
+            background: #e2e8f0;
+            color: #4a5568;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 700;
+            cursor: pointer;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        .btn-save:hover   { opacity: 0.9; transform: translateY(-2px); }
+        .btn-cancel:hover { background: #cbd5e0; transform: translateY(-2px); }
+
+        /* ── TOAST ── */
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            z-index: 99999;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
     </style>
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">🔍 Lost & Found</a>
@@ -262,18 +394,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/report-lost">Report Lost</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/report-found">Report Found</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/view-items">View Items</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/report-lost">Report Lost</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/report-found">Report Found</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/view-items">View Items</a></li>
                 </ul>
             </div>
         </div>
@@ -283,11 +407,11 @@
         <div class="page-header">
             <h2>📋 All Items</h2>
         </div>
-        
-        <!-- ========== SEARCH BAR SECTION ========== -->
+
+        <!-- SEARCH BAR -->
         <div class="search-container">
             <div class="search-box">
-                <input type="text" id="searchInput" class="form-control" 
+                <input type="text" id="searchInput" class="form-control"
                        placeholder="🔍 Search by item name, location, or description...">
                 <span class="search-icon">🔍</span>
             </div>
@@ -298,124 +422,134 @@
                     <option value="location">Location</option>
                     <option value="description">Description</option>
                 </select>
-                <input type="date" id="dateFilter" class="form-control" 
+                <input type="date" id="dateFilter" class="form-control"
                        style="max-width: 200px;" placeholder="Filter by date">
                 <button class="btn btn-outline-secondary" onclick="clearSearch()">Clear Filters</button>
             </div>
         </div>
-        <!-- ========== END SEARCH BAR SECTION ========== -->
-        
+
+        <!-- FILTER BUTTONS -->
         <div class="text-center mb-5">
             <div class="filter-buttons">
-                <button type="button" class="btn btn-outline-primary active" onclick="filterItems('ALL')">All Items</button>
-                <button type="button" class="btn btn-outline-danger" onclick="filterItems('LOST')">Lost Only</button>
-                <button type="button" class="btn btn-outline-success" onclick="filterItems('FOUND')">Found Only</button>
+                <button type="button" class="btn btn-outline-primary active" onclick="filterItems('ALL', event)">All Items</button>
+                <button type="button" class="btn btn-outline-danger"         onclick="filterItems('LOST', event)">Lost Only</button>
+                <button type="button" class="btn btn-outline-success"        onclick="filterItems('FOUND', event)">Found Only</button>
             </div>
         </div>
 
-        <div id="itemsList" class="row">
-            <!-- Items will be loaded here dynamically -->
+        <div id="itemsList" class="row"></div>
+    </div>
+
+    <!-- ========== EDIT MODAL ========== -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal-box">
+            <h4>✏️ Edit Item</h4>
+            <input type="hidden" id="editItemId"/>
+
+            <label>Item Name *</label>
+            <input type="text" id="editItemName" class="form-control" placeholder="Item name"/>
+
+            <label>Description *</label>
+            <textarea id="editDescription" class="form-control" rows="3" placeholder="Description"></textarea>
+
+            <label>Category *</label>
+            <input type="text" id="editCategory" class="form-control" placeholder="Category"/>
+
+            <label>Location *</label>
+            <input type="text" id="editLocation" class="form-control" placeholder="Location"/>
+
+            <label>Status *</label>
+            <select id="editStatus" class="form-select">
+                <option value="LOST">LOST</option>
+                <option value="FOUND">FOUND</option>
+            </select>
+
+            <label>Contact Name</label>
+            <input type="text" id="editContactName" class="form-control" placeholder="Contact name"/>
+
+            <label>Contact Email</label>
+            <input type="email" id="editContactEmail" class="form-control" placeholder="Contact email"/>
+
+            <label>Contact Phone</label>
+            <input type="text" id="editContactPhone" class="form-control" placeholder="Contact phone (optional)"/>
+
+            <div class="modal-footer-btns">
+                <button class="btn-save"   onclick="saveEdit()">💾 Save Changes</button>
+                <button class="btn-cancel" onclick="closeEditModal()">Cancel</button>
+            </div>
         </div>
     </div>
+    <!-- ========== END EDIT MODAL ========== -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         let currentFilter = 'ALL';
         let searchTimeout;
-        
-        // Add event listeners for search
-        document.getElementById('searchInput').addEventListener('input', function() {
+
+        // ── Search listeners ──
+        document.getElementById('searchInput').addEventListener('input', function () {
             clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                performSearch();
-            }, 500); // Debounce for 500ms
+            searchTimeout = setTimeout(performSearch, 500);
         });
-        
         document.getElementById('searchType').addEventListener('change', performSearch);
         document.getElementById('dateFilter').addEventListener('change', performSearch);
-        
-        function filterItems(status) {
+
+        function filterItems(status, event) {
             currentFilter = status;
-            
-            // Update active button
-            document.querySelectorAll('.filter-buttons .btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            document.querySelectorAll('.filter-buttons .btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
-            
             performSearch();
         }
-        
+
         function clearSearch() {
             document.getElementById('searchInput').value = '';
             document.getElementById('searchType').value = 'all';
             document.getElementById('dateFilter').value = '';
             performSearch();
         }
-        
+
         function performSearch() {
             const searchQuery = document.getElementById('searchInput').value.trim();
-            const searchType = document.getElementById('searchType').value;
-            const dateFilter = document.getElementById('dateFilter').value;
-            
-            let url = '/api/items/search?';
+            const searchType  = document.getElementById('searchType').value;
+            const dateFilter  = document.getElementById('dateFilter').value;
+
             const params = [];
-            
             if (searchQuery) {
                 params.push(`query=${encodeURIComponent(searchQuery)}`);
                 params.push(`type=${searchType}`);
             }
-            
-            if (currentFilter !== 'ALL') {
-                params.push(`status=${currentFilter}`);
-            }
-            
-            if (dateFilter) {
-                params.push(`date=${dateFilter}`);
-            }
-            
-            url += params.join('&');
-            
-            // If no search parameters, load all items
-            if (params.length === 0) {
-                loadItems();
-                return;
-            }
-            
-            fetch(url)
-                .then(response => response.json())
-                .then(items => {
-                    displayItems(items);
-                })
-                .catch(error => {
-                    console.error('Error searching items:', error);
-                    document.getElementById('itemsList').innerHTML = 
+            if (currentFilter !== 'ALL') params.push(`status=${currentFilter}`);
+            if (dateFilter)              params.push(`date=${dateFilter}`);
+
+            if (params.length === 0) { loadItems(); return; }
+
+            fetch('/api/items/search?' + params.join('&'))
+                .then(r => r.json())
+                .then(displayItems)
+                .catch(() => {
+                    document.getElementById('itemsList').innerHTML =
                         '<div class="col-12"><div class="no-items"><p class="text-danger">❌ Error searching items.</p></div></div>';
                 });
         }
-        
+
         function loadItems() {
             const url = currentFilter === 'ALL' ? '/api/items' : `/api/items/status/${currentFilter}`;
-            
             fetch(url)
-                .then(response => response.json())
-                .then(items => {
-                    displayItems(items);
-                })
-                .catch(error => {
-                    console.error('Error loading items:', error);
-                    document.getElementById('itemsList').innerHTML = 
+                .then(r => r.json())
+                .then(displayItems)
+                .catch(() => {
+                    document.getElementById('itemsList').innerHTML =
                         '<div class="col-12"><div class="no-items"><p class="text-danger">❌ Error loading items.</p></div></div>';
                 });
         }
-        
+
         function displayItems(items) {
             const container = document.getElementById('itemsList');
             if (items.length === 0) {
                 container.innerHTML = '<div class="col-12"><div class="no-items"><p>🔍 No items found.</p></div></div>';
                 return;
             }
-            
+
             container.innerHTML = items.map(item => `
                 <div class="col-md-6 mb-4">
                     <div class="card item-card ${item.status === 'LOST' ? 'lost-card' : 'found-card'}">
@@ -432,13 +566,101 @@
                             <p class="mb-1"><strong>👤 Contact:</strong> ${item.contactName}</p>
                             <p class="mb-1"><strong>📧 Email:</strong> ${item.contactEmail}</p>
                             ${item.contactPhone ? `<p class="mb-1"><strong>📱 Phone:</strong> ${item.contactPhone}</p>` : ''}
+                            <div class="action-buttons">
+                                <button class="btn-edit"   onclick="openEditModal(${item.id})">✏️ Edit</button>
+                                <button class="btn-delete" onclick="deleteItem(${item.id}, '${item.itemName}')">🗑️ Delete</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
-        
-        // Load items on page load
+
+        // ── EDIT ──
+        function openEditModal(id) {
+            fetch(`/api/items/${id}`)
+                .then(r => r.json())
+                .then(item => {
+                    document.getElementById('editItemId').value       = item.id;
+                    document.getElementById('editItemName').value     = item.itemName;
+                    document.getElementById('editDescription').value  = item.description;
+                    document.getElementById('editCategory').value     = item.category;
+                    document.getElementById('editLocation').value     = item.location;
+                    document.getElementById('editStatus').value       = item.status;
+                    document.getElementById('editContactName').value  = item.contactName  || '';
+                    document.getElementById('editContactEmail').value = item.contactEmail || '';
+                    document.getElementById('editContactPhone').value = item.contactPhone || '';
+                    document.getElementById('editModal').classList.add('active');
+                })
+                .catch(() => alert('❌ Could not load item details.'));
+        }
+
+        function closeEditModal() {
+            document.getElementById('editModal').classList.remove('active');
+        }
+
+        function saveEdit() {
+            const id = document.getElementById('editItemId').value;
+            const updatedItem = {
+                itemName:     document.getElementById('editItemName').value.trim(),
+                description:  document.getElementById('editDescription').value.trim(),
+                category:     document.getElementById('editCategory').value.trim(),
+                location:     document.getElementById('editLocation').value.trim(),
+                status:       document.getElementById('editStatus').value,
+                contactName:  document.getElementById('editContactName').value.trim(),
+                contactEmail: document.getElementById('editContactEmail').value.trim(),
+                contactPhone: document.getElementById('editContactPhone').value.trim()
+            };
+
+            if (!updatedItem.itemName || !updatedItem.description ||
+                !updatedItem.category || !updatedItem.location) {
+                alert('⚠️ Please fill in all required fields.');
+                return;
+            }
+
+            fetch(`/api/items/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedItem)
+            })
+            .then(r => {
+                if (!r.ok) throw new Error();
+                closeEditModal();
+                loadItems();
+                showToast('✅ Item updated successfully!', '#667eea');
+            })
+            .catch(() => alert('❌ Failed to update item. Please try again.'));
+        }
+
+        // ── DELETE ──
+        function deleteItem(id, itemName) {
+            if (!confirm(`⚠️ Are you sure you want to delete "${itemName}"?\nThis cannot be undone.`)) return;
+
+            fetch(`/api/items/${id}`, { method: 'DELETE' })
+                .then(r => {
+                    if (!r.ok) throw new Error();
+                    loadItems();
+                    showToast('🗑️ Item deleted successfully!', '#f5576c');
+                })
+                .catch(() => alert('❌ Failed to delete item. Please try again.'));
+        }
+
+        // ── TOAST ──
+        function showToast(message, color) {
+            const t = document.createElement('div');
+            t.className = 'toast-msg';
+            t.style.background = color || '#667eea';
+            t.innerText = message;
+            document.body.appendChild(t);
+            setTimeout(() => t.remove(), 3000);
+        }
+
+        // Close modal on backdrop click
+        document.getElementById('editModal').addEventListener('click', function (e) {
+            if (e.target === this) closeEditModal();
+        });
+
+        // Initial load
         loadItems();
     </script>
 </body>
